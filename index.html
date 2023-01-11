@@ -1,15 +1,22 @@
-<!-- This is hosting images in the 'images' folder -->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Imezy' images</title>
-
-</head>
-<body>
-<!-- Path: imezy_img/index.html -->
-<img src="./images/140x140.png" alt=" ">
-<img src="./images/250x250.png" alt=" ">
-<img src="./images/imezy.png" alt=" ">
-</body>
+  <head>
+    <title>Images</title>
+  </head>
+  <body>
+    <h1>Images</h1>
+    <div>
+        <ul>
+        <?php
+            $folder = "images/";
+            $files = scandir($folder);
+            foreach ($files as $file) {
+                if(strlen($file) > 2) {
+                    echo '<li><img src="' . $folder . $file . '" alt="' . $file . '" height="200"></li>';
+                }
+            }
+        ?>
+        </ul>
+    </div>
+  </body>
 </html>
